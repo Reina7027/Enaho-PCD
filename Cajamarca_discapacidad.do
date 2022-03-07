@@ -1,4 +1,11 @@
-*BASES 500
+/*
+    Description:
+    ENAHO PEA ocupada con discapacidad - Cajamarca
+    Author: YolaM
+    Version: 1.0
+*/
+
+*BASES ENAHO MÓDULO 500
 *------------------------
 clear all
 *set more off
@@ -6,7 +13,7 @@ clear all
 gl up F:\Enaho\Bases
 gl rutasave F:\Enaho\data1
 
-forvalues x=2019/2019{
+forvalues x=2018/2020{
 use "$up\Enaho-`x'-500_variables_MTPE.dta", clear
 
 keep conglome vivienda hogar codperso estrato fac500a7 r3 rdpto rarea p207 r1r r2r_a r11r p511a r8 r19
@@ -19,15 +26,15 @@ qui saveold "$rutasave\base_aux`x'.dta"
 
 
 
-*BASES 400 DISCAPACIDAD
-*-------------------------
+*BASES ENAHO MÓDULO 400 DISCAPACIDAD
+*------------------------------------
 clear all
 *set more off
 
 gl up F:\Enaho\Bases_400
 gl rutasave F:\Enaho\data1
 
-forvalues x=2014/2020{
+forvalues x=2018/2020{
 use "$up\enaho01a-`x'-400.dta", clear
 
 keep conglome vivienda hogar codperso p401h1 p401h2 p401h3 p401h4 p401h5 p401h6 
@@ -59,7 +66,7 @@ clear all
 gl up F:\Enaho\data1
 *gl rutasave F:\Enaho\data
 
-forvalues x=2019/2020{
+forvalues x=2018/2020{
 use "$up\base_aux`x'.dta", clear
 
 drop if _merge==2
